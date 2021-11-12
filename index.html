@@ -7,27 +7,48 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>File NameGen</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+
+        <!--favicons-->
+        <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+       
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
         <style>
             .hidden {display:none;}
+            .center {text-align: center;}
             label { width: 150px !important;display:inline-block;   }
-            body {  background: linear-gradient(90deg,  #003699 20%,  #196AFF 100%); color: #FFF; }
-            select {width:190px;}
+            body {  background: linear-gradient(90deg,  #003699 10%,  #196AFF 100%); color: #FFF; text-align: center; }
+            select {width:160px;}
             h4 {margin-bottom:0px;}
+            h1, label, h4 {    text-align: left;}
+          
 
         </style>
     </head>
-    <body style="text-align:left;"> 
+    <body> 
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-      <h1>File NameGen</h1>
+      <h1 class="center">File NameGen</h1>
       
-      <h4>Type</h4>
+      <h4 class="center"Type</h4>
 
        
             <input type="radio" id="00" name="Type" value="Project" >
@@ -58,17 +79,17 @@
         <input   id="0H" name="name02"> <br ><br  >
        
         <label class="projectOnly" for="0D" >JIRA Code</label>
-        <input class="projectOnly" type="text" id="0D" name="name02"><br class="projectOnly" ><br class="projectOnly">
+        <input class="projectOnly" type="text" id="0D" name="name02" placeholder="ABC-123"><br class="projectOnly" ><br class="projectOnly">
 
         <label class="projectOnly" for="0E" >Projector Code</label>
         <input class="projectOnly" type="text" id="0E" name="name02"><br class="projectOnly" ><br class="projectOnly">
 
 
         <label  for="0F" >Project Name</label>
-        <input   type="text" id="0F" name="name02"><br ><br >
+        <input   type="text" id="0F" name="name02" placeholder="Project"><br ><br >
 
         <label for="0G" >File Name</label>
-        <input type="text" id="0G" name="name02"><br><br>
+        <input type="text" id="0G" name="name02" placeholder="FileName"><br><br>
 
         <br>
 
@@ -78,101 +99,9 @@
 
        </div>
     
-        <script >
+        <script src="script.js" >
             
-            function createName() {
-                var _0C = document.getElementById("0C").value;
-                var _0D = document.getElementById("0D").value;
-                var _0E = document.getElementById("0E").value;
-                var _0F = document.getElementById("0F").value;
-                var _0G = document.getElementById("0G").value;
-
-                if (document.getElementById("output").innerHTML != "") {
-                    document.getElementById("output").innerHTML = "";
-                }
-                var _00 = document.getElementById("00");
-
-                if ( _00.checked) {
-                    var name =_0A +"_"+_0B+"-"+_0C+"_"+_0D+"_"+_0E+"_"+_0F+"_"+_0G;
-                } else var name =_0A +"_"+_0B+"_"+_0H +"-"+_0C+"_"+_0F+"_"+_0G;
-
-
-                console.log(name);
-
-                function displayName() {
-                        var title = document.createElement("H1");
-                        document.getElementById("output").appendChild(title);
-                        title.innerText = name;
-                    } 
-                displayName();
-                //console.log(name);
-            }
-
-            var nowDateTime = new Date();
-
-            //Prepopulate Year
-            var fullYear = nowDateTime.getFullYear();
-            console.log(fullYear);
-            var _0A = fullYear;
-            document.getElementById("0A").value = _0A;
-            
-            //Prepopulate Month
-            var fullMonth = nowDateTime.getMonth();
-            console.log(fullMonth);
-            var _0B = fullMonth;
-            if (_0B < 10) {
-                var _0B = "0"+ (_0B + 1) ; 
-            }
-            document.getElementById("0B").value = _0B; 
-            
-
-            //Prepopulate Day
-            var fullDay = nowDateTime.getDate();
-            console.log(fullDay);
-            var _0H = fullDay;
-            if (_0H < 10) {
-                var _0H = "0"+ _0H; 
-            } 
-            document.getElementById("0H").value = _0H; 
-
-            //  Press Enter to comment block   /*
-            document.getElementById("01").onchange = function(){
-                console.log("TYPE: file");
-                //Clear excess hiddens
-                clearExcessHiddens();
-                //add one hidden
-                addOneHidden();
-               
-                //console.log(fileName);
-            };
-
-            //Clear excess hiddens
-            function clearExcessHiddens() {
-                var x = document.querySelectorAll('.projectOnly,.hidden');
-                for (var i = 0; i < x.length; i++) {
-                    x[i].className = "projectOnly";
-                }
-            }
-            function addOneHidden() {
-                var x = document.querySelectorAll(".projectOnly");
-                for (var i = 0; i < x.length; i++) {
-                    x[i].className += " hidden";
-                }
-
-            }
-                
-            document.getElementById("00").onchange = function(){
-                console.log("TYPE: Project");
-                var x = document.querySelectorAll(".hidden");
-                for (var i = 0; i < x.length; i++) {
-                    x[i].className = "projectOnly";
-                };
-                //console.log(fileName);
-            };
-
-
-            // */
-                
+        
         </script>
     </body>
 </html>
