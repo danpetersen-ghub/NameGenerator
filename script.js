@@ -55,12 +55,16 @@ if (_0H < 10) {
 } 
 document.getElementById("0H").value = _0H; 
 
-document.getElementById("01").onchange = function(){
+function File() {
     console.log("TYPE: file");
     //Clear excess hiddens
     clearExcessHiddens();
     //add one hidden
     addOneHidden();
+}
+
+document.getElementById("01").onchange = function(){
+    File();
 };
 
 //Clear excess hiddens
@@ -86,6 +90,101 @@ document.getElementById("00").onchange = function(){
     };
 };
 
+//Modal - function
+function modal(command) {
+    console.log(command);
+    let modalBox = document.getElementById("modal-area");
+    if (command === "Hide" ){ 
+           modalBox.style.display = "none"; 
+          } 
+    else if (command === "Show"){ 
+         modalBox.style.display = "block";
+              } 
+}
 
-// */
+//Modal - on load
+modal("Hide");
+let editClient = document.getElementById("edit_client");
+
+let modalClose =  document.getElementById("modal-close");
+    modalClose.addEventListener("click", function(){
+        modal("Hide");
+        MainUIUpdate();
+});
+MainUIUpdate();
+File();
+
+
+//Client List Events
+editClient.addEventListener("click", function(){
     
+    modal("Show");
+
+    //Client List
+    let ModalContent = document.getElementById("modal-content");
+
+    //Templates
+    ModalContent.innerHTML =  `
+    <h5>Client List</h5>
+    <label  for="ClientList" >Client List</label>
+    <input   type="text" id="ClientList" name="ClientList" placeholder="A;B;C">
+    <p id="Save">Save 
+     <i  class="far fa-save"></i> 
+    </p>`;
+    
+    showExistingConfig();
+    Save();
+
+
+});
+
+function Save() {
+    let Save = document.getElementById("Save"); 
+    Save.addEventListener("click", function(){  
+        saveTolocalStoragefn();
+        modal("Hide");
+        MainUIUpdate();
+    });
+} 
+
+
+function saveTolocalStoragefn(){
+      
+    let ClientListValue = document.getElementById("ClientList").value;
+    window.localStorage.setItem('ClientList', ClientListValue );
+    
+   
+}
+ 
+
+function MainUIUpdate() {
+    clientListLS = window.localStorage.getItem('ClientList'); 
+    console.log(clientListLS);
+    if(clientListLS !== "" || null || undefined ) {
+        result = clientListLS.split(';');
+        console.log(result);
+        //id="0C"
+        document.getElementById('0C').innerHTML="";
+        for (var i = 0; i < result.length;i++) {
+            let OPTION = `<option value="${result[i]}">${result[i]}</option>`;
+            document.getElementById('0C').innerHTML += OPTION ;
+
+        }
+    }
+}
+
+function showExistingConfig() {
+    let Save = document.getElementById("Save"); 
+    if(!window.localStorage['ClientList'] || window.localStorage['ClientList'] === null || undefined ){
+        currentList = `<br><p style="font-size:9px;"> No Saved Records, Please Provide a List 
+                       <br><em>i.e. a;b;c</em> 
+                       <p>`;
+        Save.innerHTML += currentList;
+    } else {
+        document.getElementById("ClientList").value = window.localStorage['ClientList'];
+    }
+}
+
+
+
+//document.getElementById('01').click();
