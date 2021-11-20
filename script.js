@@ -160,7 +160,7 @@ function saveTolocalStoragefn(){
 function MainUIUpdate() {
     clientListLS = window.localStorage.getItem('ClientList'); 
     console.log(clientListLS);
-    if(clientListLS !== "" || null || undefined ) {
+    if(clientListLS ) {
         result = clientListLS.split(';');
         console.log(result);
         //id="0C"
