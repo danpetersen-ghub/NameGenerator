@@ -1,3 +1,3 @@
 # NameGenerator
 
-http://dandev.infinityfreeapp.com/NameGen/NameGenerator.html
+https://dp-namegenerator.netlify.app/
