@@ -1,3 +1,3 @@
 # NameGenerator
 
-https://dp-namegenerator.netlify.app/
+https://www.namegenerator.dandevelopment.uk/
