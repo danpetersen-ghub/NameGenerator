@@ -37,7 +37,7 @@ document.getElementById("0A").value = _0A;
 //Prepopulate Month
 var fullMonth = nowDateTime.getMonth();
 var _0B = fullMonth;
-if (_0B < 10) {
+if (_0B < 9) {
     _0B = "0"+ (_0B + 1) ; 
 } else {
     _0B = (_0B + 1) ; 
