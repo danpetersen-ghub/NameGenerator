@@ -186,5 +186,16 @@ function showExistingConfig() {
 }
 
 
+function copyToClipboard() {
+    // Get the text field
+    let copyText = document.getElementById("output");
+
+     // Copy the text inside the text field
+    navigator.clipboard.writeText(copyText.innerText);
+  
+    // Alert the copied text
+    console.log("Copied the text: " + copyText.innerText);
+  }
+
 
 //document.getElementById('01').click();
