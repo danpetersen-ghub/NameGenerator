@@ -91,13 +91,13 @@
                 color: #003699;
                 
             }
-            #CTA {
+            button {
                 padding: 4px 20px;
                 border: 0px;
                 background: #FFF;
                 border-radius: 5px;
             }
-            #CTA:hover {
+            button:hover {
                 border: 1px #FFF;
                 color:#FFF;
                 background: #003699;
@@ -171,7 +171,9 @@
     <br>
 
     <button id="CTA" onclick="createName();">Create Name</button>
-    <br>
+    <button onclick="copyToClipboard()" >&#128203;</button>
+   
+    <br><br>
    <div contenteditable="true" id="output"></div>
 </section>
 <section id="modal-area" >
