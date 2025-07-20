@@ -1,0 +1,22 @@
+{
+  "name": "productivity-tools",
+  "version": "1.0.0",
+  "description": "web tools",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danpetersen-ghub/NameGenerator.git"
+  },
+  "author": "Dan Petersen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danpetersen-ghub/NameGenerator/issues"
+  },
+  "homepage": "https://github.com/danpetersen-ghub/NameGenerator#readme",
+  "dependencies": {
+    "jest": "^30.0.4"
+  }
+}

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>File NameGen</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+         <!--Fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet"> 
+
+        <!--favicons-->
+        <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+
+        <!--ICON-->
+        <script src="https://kit.fontawesome.com/a0886f7045.js" crossorigin="anonymous"></script>
+        
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+        <style>
+            .hidden {display:none;}
+            .center {text-align: center;}
+            label { width: 150px !important;display:inline-block;   }
+            body { font-family: 'Nunito', sans-serif; background: linear-gradient(90deg,  #003699 10%,  #196AFF 100%); color: #FFF; text-align: center; z-index: 0; }
+            select { width: 150px;
+                    background: #FFF;
+                    border: 1px solid #e3e3e3;
+                    border-radius: 2px;
+                    margin: 0px 0px 0px 20px;
+            }
+            h4 {margin-bottom:0px;}
+            h1, label, h4 {    text-align: left;}
+           .modal {
+                
+                min-width: 40%;
+                min-height: 100px;
+                background-color: #FFF;
+                z-index: 2;
+                left: 30%;
+                top: 30%;
+                position: fixed;
+                border-radius: 2%;
+                box-shadow:20px 20px 50px grey;
+                border: 1px solid;
+                padding: 5px;
+               
+
+           }
+
+           .modal-background {
+                
+                background-color: black;
+                opacity: 0.6;
+                width: 100% !important;
+                height: 100% !important;
+                z-index: 1;
+                left: 0%;
+                top: 0%;
+                position: fixed;
+               
+            }
+            
+            .fa-window-close {
+                top: 0;
+                right: 0;
+                color: red;
+                position: absolute;
+                margin: 5px;
+            }
+            #modal-content {
+                color: #003699;
+                
+            }
+            button {
+                padding: 4px 20px;
+                border: 0px;
+                background: #FFF;
+                border-radius: 5px;
+                line-height:17px;
+            }
+            button:hover {
+                border: 1px #FFF;
+                color:#FFF;
+                background: #003699;
+
+            } 
+            
+            #edit_client:hover  {
+                border: 1px #FFF;
+                color:#003699;
+            }
+            #edit_client {
+                    margin-left:20px;
+            }
+
+
+        </style>
+    </head>
+    <body> 
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+<section id="title-area">
+    <h1 class="center">File NameGen</h1>
+
+</section>
+<section id="form-area" >
+    <h4 class="center"Type</h4>
+
+       
+        <input type="radio" id="00" name="Type" value="Project" >
+        <label for="00" >Project</label> <br>
+        
+        <input type="radio" id="01" name="Type" value="File" >
+        <label for="01">File</label>
+
+ 
+  <br><br>
+
+
+  <label for="0C">Client</label> 
+        <select id="0C">
+        <option value="Base1">Base1</option>
+        <option value="Base2">Base2</option>
+        <option value="Base3">Base3</option>
+        </select>
+    <i class="fa fa-pencil" id="edit_client"></i> 
+        <br><br>
+
+    <label for="0A" >Year</label>
+    <input type="text" id="0A" name="name01" ><br><br>
+
+    <label for="0B" >Month</label>
+    <input type="text" id="0B" name="name02"><br><br>
+
+    <label for="0H" >Day</label>
+    <input   id="0H" name="name02"> <br ><br  >
+   
+    <label class="projectOnly" for="0D" >JIRA Code</label>
+    <input class="projectOnly" type="text" id="0D" name="name02" placeholder="ABC-123"><br class="projectOnly" ><br class="projectOnly">
+
+    <label class="projectOnly" for="0E" >Projector Code</label>
+    <input class="projectOnly" type="text" id="0E" name="name02"><br class="projectOnly" ><br class="projectOnly">
+
+
+    <label  for="0F" >Project Name</label>
+    <input   type="text" id="0F" name="name02" placeholder="Project"><br ><br >
+
+    <label for="0G" >File Name</label>
+    <input type="text" id="0G" name="name02" placeholder="FileName"><br><br>
+
+    <br>
+
+    <button id="CTA" onclick="createName();">Create Name</button>
+    <button onclick="copyToClipboard()" >&#128203;</button>
+   
+    <br><br>
+   <div contenteditable="true" id="output"></div>
+</section>
+<section id="modal-area" >
+    <div class="modal-background"></div>       
+    <div class="modal" >
+        <div>
+            <i id="modal-close" class="far fa-window-close"></i>
+            <section id="modal-content" >
+                
+            </section>
+        </div>
+    </div>
+</section>
+      
+      <script src="script.js" >  </script>
+      
+    </body>
+</html>
