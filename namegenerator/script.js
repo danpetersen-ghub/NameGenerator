@@ -9,8 +9,8 @@ function createName() {
     let projectNameInput = document.getElementById("0F").value;
     let fileNameInput = document.getElementById("0G").value;
 
-    let cleanfileName = fileNameInput.replace(" ", "-")
-    let cleanProjectName = projectNameInput.replace(" ", "-")
+    let cleanfileName = fileNameInput.replaceAll(" ", "-");
+    let cleanProjectName = projectNameInput.replaceAll(" ", "-");
 
     console.log("File Name is: ", cleanfileName);
     console.log("Project Name is: ", cleanProjectName)
