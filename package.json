@@ -4,7 +4,7 @@
   "description": "web tools",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "playwright test"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
   "homepage": "https://github.com/danpetersen-ghub/NameGenerator#readme",
   "dependencies": {
     "jest": "^30.0.4"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.39.2"
   }
 }

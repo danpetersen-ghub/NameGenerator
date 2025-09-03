@@ -1,8 +1,7 @@
-
 function createName() {
     let year = document.getElementById("0A").value
     let month = document.getElementById("0B").value
-    let day = document.getElementById("0B").value
+    let day = document.getElementById("0H").value
     let clientSelectNameInput = document.getElementById("0C").value;
     let _0D = document.getElementById("0D").value;
     let _0E = document.getElementById("0E").value;
@@ -49,14 +48,16 @@ console.log(_0B);
 document.getElementById("0B").value = _0B;
 
 
-//Prepopulate Day
-let fullDay = nowDateTime.getDate();
-console.log(fullDay);
-let _0H = fullDay;
-if (_0H < 10) {
-    let _0H = "0" + _0H;
+// Prepopulate Day (refactored into a function)
+function prepopulateDay(date = new Date(), elementId = "0H") {
+    const day = date.getDate();
+    const dayStr = day < 10 ? "0" + day : String(day);
+    console.log(day);
+    document.getElementById(elementId).value = dayStr;
+    return dayStr;
 }
-document.getElementById("0H").value = _0H;
+
+prepopulateDay(nowDateTime);
 
 function File() {
     console.log("TYPE: file");
