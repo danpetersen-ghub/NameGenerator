@@ -9,6 +9,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      # centralize browsers path so cache/restore and install use the same directory
+      PLAYWRIGHT_BROWSERS_PATH: $HOME/.cache/ms-playwright
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js
@@ -32,16 +35,21 @@ jobs:
       - name: Cache Playwright browsers
         uses: actions/cache@v4
         with:
-          path: ~/.cache/ms-playwright
+          path: $HOME/.cache/ms-playwright
           key: ${{ runner.os }}-playwright-browsers-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-playwright-browsers-
 
-      - name: Install Playwright browsers (only if cache miss)
-        env:
-          # install browsers into the ms-playwright cache path
-          PLAYWRIGHT_BROWSERS_PATH: ~/.cache/ms-playwright
-        run: npx playwright install --with-deps
+      - name: Ensure Playwright browsers are installed (only if missing)
+        run: |
+          set -euo pipefail
+          # check for a known executable (headless_shell) under the browsers path
+          if ! find "${PLAYWRIGHT_BROWSERS_PATH}" -type f -name headless_shell -print -quit >/dev/null 2>&1; then
+            echo "Playwright browsers not found in cache; installing..."
+            npx playwright install --with-deps
+          else
+            echo "Playwright browsers found in cache, skipping install."
+          fi
       - name: Run tests
         run: npm test
       - name: Upload Playwright report
