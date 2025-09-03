@@ -6,9 +6,9 @@ const { pathToFileURL } = require('url');
 const pagePath = pathToFileURL(path.resolve(__dirname, '..', 'ToDoApp', 'index.html')).href;
 
 test('ToDoApp: basic smoke test (stub)', async ({ page }) => {
-  await page.goto(pagePath);
+    await page.goto(pagePath);
 
-  // simple smoke: ensure page loads and has a title or known element
-  const bodyText = await page.locator('body').innerText();
-  expect(bodyText.length).toBeGreaterThan(10);
+    // simple smoke: ensure page loads and has a title or known element
+    const bodyText = await page.locator('body').innerText();
+    expect(bodyText.length).toBeGreaterThan(10);
 });
