@@ -1,7 +1,9 @@
 const { test, expect } = require('@playwright/test');
+const path = require('path');
+const { pathToFileURL } = require('url');
 
-// Adjust this path if your index.html is elsewhere
-const pagePath = 'file:///Users/danpetersen/Library/CloudStorage/OneDrive-Personal/Desktop/DevStuff/ProductivityTools/ProductivityTools/namegenerator/index.html';
+// dynamic file:// URL to the namegenerator index.html so it works locally and on CI
+const pagePath = pathToFileURL(path.resolve(__dirname, '..', 'namegenerator', 'index.html')).href;
 
 test('UI: inputs produce output containing the provided values', async ({ page }) => {
     await page.goto(pagePath);
