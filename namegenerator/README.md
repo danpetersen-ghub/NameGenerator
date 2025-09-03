@@ -2,6 +2,18 @@
 
 Quick notes for a new contributor working on the `namegenerator` UI and tests.
 
+## About
+
+NameGenerator is a small frontend utility that creates consistent, human-readable filenames for project artifacts.
+Given inputs like year/month/day, client, project and file name, it builds a standardized output string (for example: `2025_09_03-ACME_MyProject_myfile.txt`).
+
+Why this is useful:
+
+- Consistency: ensures every file follows the same naming convention so teams don't have mixed formats.
+- Searchability: dates and client/project tokens make files easy to sort and find.
+- Automation friendly: predictable filenames allow scripts and CI tasks to locate and process files reliably.
+- Reduces mistakes: centralizes formatting logic so contributors don't manually create incorrect names.
+
 Getting started
 
 - Open `namegenerator/index.html` in a browser to view the app.
